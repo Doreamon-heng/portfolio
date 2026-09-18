@@ -1,0 +1,47 @@
+import { Project } from "@/types";
+
+export const projectsData: Project[] = [
+  {
+    id: "ecommerce-platform",
+    title: "E-Commerce Web Application",
+    description: "A full-featured shopping platform with user authentication, product catalog, cart management, and payment checkout flow.",
+    category: "Fullstack",
+    tags: ["Nuxt Js", "Tailwind CSS", "API integrateion"],
+    image: "https://images.unsplash.com/photo-1557821552-17105176677c?q=80&w=800&auto=format&fit=crop",
+    demoUrl: "https://example.com",
+    githubUrl: "https://github.com/example/ecommerce",
+    featured: true,
+  },
+  {
+    id: "Movie Website",
+    title:"Movie Website",
+    description: "Cross-platform mobile application featuring interactive product discovery, animated cart interactions, and live status updates.",
+    category: "Frontend",
+    tags: ["React Js", "API Integration", "CSS"],
+    image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?q=80&w=800&auto=format&fit=crop",
+    demoUrl: "https://example.com",
+    githubUrl: "https://github.com/example/mobile-app",
+    featured: true,
+  },
+    {
+    id: "Guesthouse System",
+    title:"Dashboard Management System",
+    description: "An Admin dashbord to manage Gusthouse",
+    category: "Frontend",
+    tags: ["Next JS", "TypeScript", "Tailwind", "Prisma And PostgreSql"],
+    image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?q=80&w=800&auto=format&fit=crop",
+    demoUrl: "https://ghmanagesystem-ratha.netlify.app/",
+    githubUrl: "https://github.com/example/mobile-app",
+    featured: true,
+  },
+  {
+    id: "backend-api-service",
+    title: "Scalable API Ecosystem",
+    description: "Robust RESTful API service architecture handling secure RBAC, JWT/OTP verification, order orchestration, and database optimization.",
+    category: "Backend",
+    tags: ["Laravel", "PHP", "MySQL", "Github"],
+    image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=800&auto=format&fit=crop",
+    githubUrl: "https://github.com/example/api-service",
+    featured: false,
+  },
+];
