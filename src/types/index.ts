@@ -10,15 +10,6 @@ export interface Project {
   featured: boolean;
 }
 
-// src/types/index.ts
-
-export interface Profile {
-  id: string;
-  name: string;
-  role: string;
-  avatarUrl: string;
-  bio?: string;
-}
 
 export interface SkillCategory {
   category: string;
@@ -28,6 +19,7 @@ export interface SkillCategory {
 export interface Experience {
   company: string;
   role: string;
+  period: string;
   description: string[];
   technologies: string[];
 }
