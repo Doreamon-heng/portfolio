@@ -5,7 +5,7 @@ import { SectionHeading } from '../ui/SectionHeading';
 import { ProjectCard } from '../ui/ProjectCard';
 import { projectsData } from '@/data/projects';
 
-const categories = ['All', 'Fullstack', 'Frontend', 'Backend', 'Mobile'];
+const categories = ['All', 'Fullstack', 'Frontend', 'Backend'];
 
 export const ProjectsSection = () => {
   const [filter, setFilter] = useState('All');

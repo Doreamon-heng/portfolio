@@ -21,7 +21,6 @@ export const ExperienceSection = () => {
             <div className="p-6 rounded-xl border border-slate-800 bg-slate-900/30">
               <span className="text-xs font-semibold text-cyan-400">{exp.period}</span>
               <h3 className="text-xl font-bold text-slate-100 mt-1">{exp.role}</h3>
-              <p className="text-sm font-medium text-slate-400 mb-4">{exp.company}</p>
 
               <ul className="space-y-2 mb-4 text-sm text-slate-400 list-disc list-inside">
                 {exp.description.map((point, i) => (

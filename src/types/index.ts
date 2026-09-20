@@ -2,7 +2,7 @@ export interface Project {
   id: string;
   title: string;
   description: string;
-  category: 'Fullstack' | 'Frontend' | 'Backend' | 'Mobile';
+  category: 'Fullstack' | 'Frontend' | 'Backend';
   tags: string[];
   image: string;
   demoUrl?: string;
@@ -17,7 +17,6 @@ export interface SkillCategory {
 }
 
 export interface Experience {
-  company: string;
   role: string;
   period: string;
   description: string[];

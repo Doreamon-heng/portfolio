@@ -1,6 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import React from 'react';
-import { ArrowRight, Download } from 'lucide-react';
+import { ArrowRight, FileText } from 'lucide-react';
+import Link from 'next/link';
 
 export const HeroSection = () => {
   return (
@@ -18,19 +19,13 @@ export const HeroSection = () => {
             Available for Opportunities
           </div>
 
-          <h1 className='text-4xl md:text-6xl font-extrabold text-slate-100 leading-tight'>
-            Single Developer{' '}
-            <span className='text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500'>
-              Web & Mobile
-            </span>{' '}
-            Application Experiences
+          <h1 className='text-4xl md:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500 leading-tight'>
+            Fullstack Developer{' '}
+              <span className='text-amber-50'>Application Experiences {''}</span>
           </h1>
 
           <p className='mt-6 text-lg text-slate-400 leading-relaxed'>
-            Full Stack Software Developer specializing in building
-            high-performance frontend interfaces with Next.js & React, robust
-            backend APIs using Laravel, and cross-platform mobile apps with
-            Flutter.
+            Full Stack Developer | Next.js · Nuxt.js · React.js · Laravel · MERN Stack — Building high-performance web systems from interface to API.
           </p>
 
           {/* Buttons */}
@@ -40,11 +35,12 @@ export const HeroSection = () => {
               className='px-6 py-3 rounded-lg bg-cyan-500 text-slate-950 font-bold text-sm flex items-center gap-2 hover:bg-cyan-400 transition-colors shadow-lg shadow-cyan-500/20'>
               Explore Projects <ArrowRight className='w-4 h-4' />
             </a>
-            <a
-              href='/resume.pdf'
-              className='px-6 py-3 rounded-lg border border-slate-800 text-slate-300 font-medium text-sm flex items-center gap-2 hover:bg-slate-900 transition-colors'>
-              <Download className='w-4 h-4' /> Download CV
-            </a>
+            <Link
+              href='/resume'
+              className='px-6 py-3.5 rounded-2xl border border-white/15 bg-slate-950/60 backdrop-blur-xl text-slate-100 font-semibold text-sm flex items-center gap-2.5 hover:bg-slate-900/50 hover:border-cyan-400/50 hover:text-cyan-300 transition-all duration-300 shadow-xl cursor-pointer group'>
+              <FileText className='w-4 h-4 text-cyan-400 group-hover:scale-110 transition-transform duration-300' />
+              <span>View Resume</span>
+            </Link>
           </div>
         </div>
 
@@ -57,10 +53,10 @@ export const HeroSection = () => {
             {/* Photo Card */}
             <div className='relative w-72 h-72 md:w-110 md:h-110 flex items-center justify-center bg-slate-900 border border-slate-800 rounded-full overflow-hidden'>
               <img
-              src="https://avatars.githubusercontent.com/u/194563324?s=400&u=1f6613ba2e81c5bc56eeb99800149894fb48e1cd&v=4"
-              alt="Profile Avatar"
-              className="w-full h-full object-cover group-hover:scale-105 transition duration-500"
-            />
+                src='https://avatars.githubusercontent.com/u/194563324?s=400&u=1f6613ba2e81c5bc56eeb99800149894fb48e1cd&v=4'
+                alt='Profile Avatar'
+                className='w-full h-full object-cover group-hover:scale-105 transition duration-500'
+              />
             </div>
           </div>
         </div>
