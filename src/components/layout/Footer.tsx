@@ -3,13 +3,14 @@
 import React from "react";
 import Link from "next/link";
 import { Heart, ArrowUp, Terminal } from "lucide-react";
-import { FaGithub, FaLinkedin, FaTelegram, FaEnvelope } from "react-icons/fa";
+import { FaGithub, FaFacebook, FaTelegram, FaEnvelope, FaTiktok } from "react-icons/fa";
 
 const socialLinks = [
-  { name: "GitHub", href: "https://github.com", icon: FaGithub },
-  { name: "LinkedIn", href: "https://linkedin.com", icon: FaLinkedin },
-  { name: "Telegram", href: "https://t.me", icon: FaTelegram },
-  { name: "Email", href: "mailto:contact@example.com", icon: FaEnvelope },
+  { name: "GitHub", href: "https://github.com/Doreamon-heng", icon: FaGithub },
+  { name: "Facebook", href: "https://web.facebook.com/Ratha.kh.208", icon: FaFacebook },
+  { name: "Telegram", href: "https://t.me/Heng_Ratha", icon: FaTelegram },
+  { name: "Email", href: "mailto:luffy1253542gmail.com", icon: FaEnvelope },
+  { name: "TikTok", href: "https://www.tiktok.com/@heng.ratha39", icon: FaTiktok },
 ];
 
 const footerNav = [
