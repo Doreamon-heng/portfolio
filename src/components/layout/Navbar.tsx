@@ -1,6 +1,8 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { Menu, X, Terminal } from 'lucide-react';
 
 const navLinks = [
@@ -12,68 +14,196 @@ const navLinks = [
 ];
 
 export const Navbar = () => {
+  const pathname = usePathname();
+  const isHomePage = pathname === '/';
+
+  const [isVisible, setIsVisible] = useState(true);
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState('hero');
 
+  const lastScrollY = useRef(0);
+
+  // Smooth scroll handler for anchor links
+  const handleScrollTo = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    if (!isHomePage) return;
+    e.preventDefault();
+    const targetId = href.replace('#', '');
+    const targetElement = document.getElementById(targetId);
+
+    if (targetElement) {
+      targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      setActiveSection(targetId);
+      setMobileMenuOpen(false);
+    }
+  };
+
+  // Scroll direction detector (Hide on scroll down, Show on scroll up)
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
+      const currentScrollY = window.scrollY;
+
+      // Check if scrolled past top padding
+      if (currentScrollY > 20) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+
+      // Hide/Show logic with threshold to avoid jittering
+      if (currentScrollY > lastScrollY.current && currentScrollY > 80) {
+        // Scrolling DOWN -> Hide navbar
+        setIsVisible(false);
+      } else {
+        // Scrolling UP -> Show navbar
+        setIsVisible(true);
+      }
+
+      lastScrollY.current = currentScrollY;
     };
-    window.addEventListener('scroll', handleScroll);
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  return (
-    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-      isScrolled ? 'bg-slate-950/80 backdrop-blur-md border-b border-slate-800/80 py-4' : 'py-6'
-    }`}>
-      <div className="max-w-6xl mx-auto px-6 flex items-center justify-between">
-        <a href="#hero" className="flex items-center gap-2 text-slate-100 font-bold text-lg">
-          <Terminal className="w-6 h-6 text-cyan-400" />
-          <span>Ratha<span className="text-cyan-400">Heng</span></span>
-        </a>
+  // Sync active section with IntersectionObserver
+  useEffect(() => {
+    if (!isHomePage) return;
 
-        {/* Desktop Nav */}
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveSection(entry.target.id);
+          }
+        });
+      },
+      {
+        rootMargin: '-20% 0px -60% 0px',
+      }
+    );
+
+    navLinks.forEach((link) => {
+      const el = document.querySelector(link.href);
+      if (el) observer.observe(el);
+    });
+
+    return () => observer.disconnect();
+  }, [isHomePage]);
+
+  return (
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out ${
+        isVisible ? 'translate-y-0' : '-translate-y-full'
+      } ${
+        isScrolled
+          ? 'bg-slate-950/50 backdrop-blur-md border-b border-white/5 py-3.5 shadow-xl shadow-black/20'
+          : 'bg-transparent py-5'
+      }`}
+    >
+      <div className="max-w-6xl mx-auto px-6 flex items-center justify-between">
+        
+        {/* Brand Logo */}
+        <Link
+          href="/"
+          className="flex items-center gap-2 text-slate-100 font-bold text-lg hover:opacity-90 transition-opacity"
+        >
+          <Terminal className="w-5 h-5 text-cyan-400" />
+          <span>
+            Ratha<span className="text-cyan-400">Heng</span>
+          </span>
+        </Link>
+
+        {/* Translucent Desktop Nav */}
         <nav className="hidden md:flex items-center gap-8">
-          {navLinks.map((link) => (
-            <a
-              key={link.name}
-              href={link.href}
-              className="text-sm font-medium text-slate-400 hover:text-cyan-400 transition-colors"
+          {isHomePage ? (
+            navLinks.map((link) => {
+              const isActive = activeSection === link.href.replace('#', '');
+              return (
+                <a
+                  key={link.name}
+                  href={link.href}
+                  onClick={(e) => handleScrollTo(e, link.href)}
+                  className={`text-sm font-medium transition-all duration-200 relative ${
+                    isActive
+                      ? 'text-cyan-400'
+                      : 'text-slate-300 hover:text-white'
+                  }`}
+                >
+                  {link.name}
+                  {isActive && (
+                    <span className="absolute -bottom-1.5 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-cyan-400 shadow-[0_0_8px_#22d3ee]" />
+                  )}
+                </a>
+              );
+            })
+          ) : (
+            <Link
+              href="/"
+              className="text-sm font-medium text-slate-300 hover:text-cyan-400 transition-colors"
             >
-              {link.name}
-            </a>
-          ))}
+              ← Back to Overview
+            </Link>
+          )}
+        </nav>
+
+        {/* Action Button */}
+        <div className="hidden md:flex items-center gap-4">
           <a
-            href="#contact"
-            className="px-4 py-2 text-xs font-semibold rounded-lg bg-cyan-500 text-slate-950 hover:bg-cyan-400 transition-colors"
+            href={isHomePage ? '#contact' : '/#contact'}
+            onClick={(e) => handleScrollTo(e, '#contact')}
+            className="px-4 py-2 text-xs font-semibold rounded-lg bg-cyan-500/90 hover:bg-cyan-400 text-slate-950 transition-all shadow-md shadow-cyan-500/10 hover:shadow-cyan-400/20 hover:-translate-y-0.5"
           >
             Hire Me
           </a>
-        </nav>
+        </div>
 
         {/* Mobile Toggle */}
         <button
-          className="md:hidden text-slate-300"
+          className="md:hidden text-slate-300 hover:text-white p-1"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          aria-label="Toggle Navigation"
         >
-          {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+          {mobileMenuOpen ? <X className="w-6 h-6 text-cyan-400" /> : <Menu className="w-6 h-6" />}
         </button>
       </div>
 
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
-        <div className="md:hidden bg-slate-950 border-b border-slate-800 px-6 py-4 flex flex-col gap-4">
-          {navLinks.map((link) => (
-            <a
-              key={link.name}
-              href={link.href}
+        <div className="md:hidden bg-slate-950/80 backdrop-blur-lg border-b border-white/10 px-6 py-5 flex flex-col gap-4 shadow-xl">
+          {isHomePage ? (
+            navLinks.map((link) => {
+              const isActive = activeSection === link.href.replace('#', '');
+              return (
+                <a
+                  key={link.name}
+                  href={link.href}
+                  onClick={(e) => handleScrollTo(e, link.href)}
+                  className={`text-sm py-1 transition-colors ${
+                    isActive ? 'text-cyan-400 font-semibold' : 'text-slate-300 hover:text-white'
+                  }`}
+                >
+                  {link.name}
+                </a>
+              );
+            })
+          ) : (
+            <Link
+              href="/"
               onClick={() => setMobileMenuOpen(false)}
-              className="text-sm text-slate-300 hover:text-cyan-400"
+              className="text-sm text-cyan-400 py-1"
             >
-              {link.name}
-            </a>
-          ))}
+              ← Back to Overview
+            </Link>
+          )}
+
+          <a
+            href={isHomePage ? '#contact' : '/#contact'}
+            onClick={(e) => handleScrollTo(e, '#contact')}
+            className="text-center py-2.5 rounded-lg bg-cyan-500 text-slate-950 text-xs font-bold mt-2"
+          >
+            Hire Me
+          </a>
         </div>
       )}
     </header>
