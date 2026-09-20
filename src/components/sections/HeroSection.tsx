@@ -1,7 +1,10 @@
+'use client';
+
 /* eslint-disable @next/next/no-img-element */
 import React from 'react';
 import { ArrowRight, FileText } from 'lucide-react';
 import Link from 'next/link';
+import { motion } from 'framer-motion';
 
 export const HeroSection = () => {
   return (
@@ -21,7 +24,7 @@ export const HeroSection = () => {
 
           <h1 className='text-4xl md:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500 leading-tight'>
             Fullstack Developer{' '}
-              <span className='text-amber-50'>Application Experiences {''}</span>
+            <span className='text-amber-50'>Application Experiences </span>
           </h1>
 
           <p className='mt-6 text-lg text-slate-400 leading-relaxed'>
@@ -30,11 +33,47 @@ export const HeroSection = () => {
 
           {/* Buttons */}
           <div className='mt-8 flex flex-wrap gap-4 items-center'>
-            <a
-              href='#projects'
-              className='px-6 py-3 rounded-lg bg-cyan-500 text-slate-950 font-bold text-sm flex items-center gap-2 hover:bg-cyan-400 transition-colors shadow-lg shadow-cyan-500/20'>
-              Explore Projects <ArrowRight className='w-4 h-4' />
+            {/* Anime-styled Explore Projects Button */}
+            <a href='#projects' className='relative group inline-block'>
+              {/* Pulsing Backlight Halo */}
+              <motion.div
+                className='absolute -inset-0.5 rounded-lg bg-gradient-to-r from-cyan-400 via-blue-500 to-fuchsia-500 blur-sm opacity-50 -z-10'
+                initial={{ opacity: 0.3, scale: 0.95 }}
+                whileHover={{ opacity: 1, scale: 1.05 }}
+                transition={{ duration: 0.2 }}
+              />
+
+              <motion.div
+                className='relative px-6 py-3 rounded-lg bg-cyan-500 text-slate-950 font-bold text-sm flex items-center gap-2 overflow-hidden shadow-lg shadow-cyan-500/30 cursor-pointer select-none'
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.93 }}
+                transition={{ type: 'spring', stiffness: 400, damping: 15 }}
+              >
+                {/* Dynamic Light Sheen / Flash Effect */}
+                <motion.div
+                  className='absolute inset-0 w-1/2 h-full bg-white/40 skew-x-[-20deg] pointer-events-none'
+                  initial={{ x: '-150%' }}
+                  whileHover={{ x: '250%' }}
+                  transition={{ duration: 0.5, ease: 'easeInOut' }}
+                />
+
+                <span className='relative z-10 tracking-wide'>Explore Projects</span>
+
+                {/* Snappy Anime Bouncing Arrow */}
+                <motion.div
+                  className='relative z-10'
+                  initial={{ x: 0 }}
+                  whileHover={{ x: [0, 6, 2, 6] }}
+                  transition={{
+                    duration: 0.4,
+                    ease: 'easeOut',
+                  }}
+                >
+                  <ArrowRight className='w-4 h-4 stroke-[2.5]' />
+                </motion.div>
+              </motion.div>
             </a>
+
             <Link
               href='/resume'
               className='px-6 py-3.5 rounded-2xl border border-white/15 bg-slate-950/60 backdrop-blur-xl text-slate-100 font-semibold text-sm flex items-center gap-2.5 hover:bg-slate-900/50 hover:border-cyan-400/50 hover:text-cyan-300 transition-all duration-300 shadow-xl cursor-pointer group'>
