@@ -27,7 +27,7 @@ export const projectsData: Project[] = [
     id: "Guesthouse System",
     title:"Dashboard Management System",
     description: "An Admin dashbord to manage Gusthouse",
-    category: "Frontend",
+    category: "Fullstack",
     tags: ["Next JS", "TypeScript", "Tailwind", "Prisma And PostgreSql"],
     image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?q=80&w=800&auto=format&fit=crop",
     demoUrl: "https://ghmanagesystem-ratha.netlify.app/",

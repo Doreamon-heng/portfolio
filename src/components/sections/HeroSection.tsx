@@ -19,7 +19,7 @@ export const HeroSection = () => {
           </div>
 
           <h1 className='text-4xl md:text-6xl font-extrabold text-slate-100 leading-tight'>
-            Crafting Modern{' '}
+            Single Developer{' '}
             <span className='text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500'>
               Web & Mobile
             </span>{' '}
