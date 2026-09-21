@@ -11,6 +11,7 @@ export const projectsData: Project[] = [
     demoUrl: "https://example.com",
     githubUrl: "https://github.com/example/ecommerce",
     featured: true,
+    deploy: "vercel"
   },
   {
     id: "Movie Website",
@@ -18,10 +19,11 @@ export const projectsData: Project[] = [
     description: "Cross-platform mobile application featuring interactive product discovery, animated cart interactions, and live status updates.",
     category: "Frontend",
     tags: ["React Js", "API Integration", "CSS"],
-    image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?q=80&w=800&auto=format&fit=crop",
-    demoUrl: "https://example.com",
-    githubUrl: "https://github.com/example/mobile-app",
+    image: "/images/sabayshop.png",
+    demoUrl: "https://sbayonlineshop.netlify.app/",
+    githubUrl: "https://github.com/Doreamon-heng/project01",
     featured: true,
+    deploy: "netlify"
   },
     {
     id: "Guesthouse System",
@@ -29,10 +31,11 @@ export const projectsData: Project[] = [
     description: "An Admin dashbord to manage Gusthouse",
     category: "Fullstack",
     tags: ["Next JS", "TypeScript", "Tailwind", "Prisma And PostgreSql"],
-    image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?q=80&w=800&auto=format&fit=crop",
+    image: "/images/projectadmin.png",
     demoUrl: "https://ghmanagesystem-ratha.netlify.app/",
     githubUrl: "https://github.com/example/mobile-app",
     featured: true,
+    deploy: "vercel"
   },
   {
     id: "backend-api-service",
@@ -43,5 +46,6 @@ export const projectsData: Project[] = [
     image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=800&auto=format&fit=crop",
     githubUrl: "https://github.com/example/api-service",
     featured: false,
+    deploy: "github"
   },
 ];

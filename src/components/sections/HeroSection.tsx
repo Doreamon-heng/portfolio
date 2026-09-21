@@ -28,7 +28,8 @@ export const HeroSection = () => {
           </h1>
 
           <p className='mt-6 text-lg text-slate-400 leading-relaxed'>
-            Full Stack Developer | Next.js · Nuxt.js · React.js · Laravel · MERN Stack — Building high-performance web systems from interface to API.
+            Full Stack Developer | Next.js · Nuxt.js · React.js · Laravel · MERN
+            Stack — Building high-performance web systems from interface to API.
           </p>
 
           {/* Buttons */}
@@ -47,8 +48,7 @@ export const HeroSection = () => {
                 className='relative px-6 py-3 rounded-lg bg-cyan-500 text-slate-950 font-bold text-sm flex items-center gap-2 overflow-hidden shadow-lg shadow-cyan-500/30 cursor-pointer select-none'
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.93 }}
-                transition={{ type: 'spring', stiffness: 400, damping: 15 }}
-              >
+                transition={{ type: 'spring', stiffness: 400, damping: 15 }}>
                 {/* Dynamic Light Sheen / Flash Effect */}
                 <motion.div
                   className='absolute inset-0 w-1/2 h-full bg-white/40 skew-x-[-20deg] pointer-events-none'
@@ -57,7 +57,9 @@ export const HeroSection = () => {
                   transition={{ duration: 0.5, ease: 'easeInOut' }}
                 />
 
-                <span className='relative z-10 tracking-wide'>Explore Projects</span>
+                <span className='relative z-10 tracking-wide'>
+                  Explore Projects
+                </span>
 
                 {/* Snappy Anime Bouncing Arrow */}
                 <motion.div
@@ -67,8 +69,7 @@ export const HeroSection = () => {
                   transition={{
                     duration: 0.4,
                     ease: 'easeOut',
-                  }}
-                >
+                  }}>
                   <ArrowRight className='w-4 h-4 stroke-[2.5]' />
                 </motion.div>
               </motion.div>
@@ -86,16 +87,37 @@ export const HeroSection = () => {
         {/* Right Column (Modern Photo Banner) */}
         <div className='lg:col-span-5 flex justify-center'>
           <div className='relative group'>
-            {/* Glowing Border */}
-            <div className='absolute -inset-1 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-full blur opacity-30 group-hover:opacity-75 transition duration-500' />
+            {/* Large Outer Ambient Aura */}
+            <div className='absolute -inset-6 rounded-full bg-cyan-500/30 blur-2xl opacity-70 group-hover:opacity-100 group-hover:bg-fuchsia-500/40 transition duration-500' />
 
-            {/* Photo Card */}
-            <div className='relative w-72 h-72 md:w-110 md:h-110 flex items-center justify-center bg-slate-900 border border-slate-800 rounded-full overflow-hidden'>
-              <img
-                src='https://avatars.githubusercontent.com/u/194563324?s=400&u=1f6613ba2e81c5bc56eeb99800149894fb48e1cd&v=4'
-                alt='Profile Avatar'
-                className='w-full h-full object-cover group-hover:scale-105 transition duration-500'
+            {/* Light Ring Outer Wrapper - Increased padding to p-2 (8px thick) */}
+            <div className='relative p-2 rounded-full overflow-hidden flex items-center justify-center'>
+              {/* Primary Thick Bright Laser Beam */}
+              <div
+                className='absolute inset-[-250%] animate-[spin_2s_linear_infinite] pointer-events-none'
+                style={{
+                  background:
+                    'conic-gradient(from 0deg, transparent 0 240deg, #22d3ee 300deg, #ffffff 360deg)',
+                }}
               />
+
+              {/* Secondary Opposite Beam */}
+              <div
+                className='absolute inset-[-250%] animate-[spin_2s_linear_infinite] pointer-events-none'
+                style={{
+                  background:
+                    'conic-gradient(from 180deg, transparent 0 240deg, #d946ef 300deg, #ffffff 360deg)',
+                }}
+              />
+
+              {/* Photo Container */}
+              <div className='relative w-72 h-72 md:w-96 md:h-96 rounded-full overflow-hidden bg-slate-950 shadow-[0_0_40px_rgba(34,211,238,0.5)] group-hover:shadow-[0_0_60px_rgba(217,70,239,0.8)] transition-all duration-500'>
+                <img
+                  src='/images/profile.png'
+                  alt='Profile Avatar'
+                  className='w-full h-full object-cover rounded-full group-hover:scale-105 transition-transform duration-500 ease-out'
+                />
+              </div>
             </div>
           </div>
         </div>

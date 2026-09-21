@@ -8,6 +8,7 @@ export interface Project {
   demoUrl?: string;
   githubUrl?: string;
   featured: boolean;
+  deploy: string;
 }
 
 

@@ -1,6 +1,7 @@
 import React from 'react';
 import { ExternalLink } from 'lucide-react';
 import { Project } from '@/types';
+import { span } from 'framer-motion/client';
 
 export const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
   return (
@@ -30,6 +31,14 @@ export const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
               {tag}
             </span>
           ))}
+        </div>
+
+        <div className="mt-6 flex items-center gap-4">
+          {project.deploy && (
+            <span className="text-xs font-semibold text-slate-200 bg-slate-800 px-2.5 py-1 rounded-md">
+              Deployed on: {project.deploy}
+            </span>
+          )}
         </div>
 
         <div className="mt-6 flex items-center gap-4">
