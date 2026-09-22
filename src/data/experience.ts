@@ -3,7 +3,7 @@ import { Experience } from "@/types";
 export const experienceData: Experience[] = [
   {
     role: "Full Stack Developer",
-    period: "2025 - Present",
+  
     description: [
       "Architected and deployed scalable full-stack web applications using Next.js and Laravel APIs.",
       "Engineered secure authentication workflows featuring role-based access control and OTP integration.",
@@ -14,7 +14,7 @@ export const experienceData: Experience[] = [
   {
     
     role: "Frontend",
-    period: "2023 - 2024",
+
     description: [
       "Built responsive, cross-platform mobile storefront applications using Flutter.",
       "Implemented fluid user interactions, smooth state management, and real-time backend synchronization.",

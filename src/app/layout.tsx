@@ -20,7 +20,7 @@ export default function RootLayout({
   return (
     <html lang='en' className='dark scroll-smooth'>
       <body
-        className={`${inter.className} bg-[#030712] text-slate-100 antialiased min-h-screen flex flex-col relative`}>
+        className={`${inter.className} text-slate-100 antialiased min-h-screen flex flex-col relative`}>
         {/* GLOBAL FIXED BACKGROUND */}
         <div className='fixed inset-0 -z-50 w-full h-full overflow-hidden pointer-events-none select-none'>
           {/* Main Wallpaper Image */}
@@ -34,7 +34,7 @@ export default function RootLayout({
           />
 
           {/* Gradient overlays for readability */}
-          <div className='absolute inset-0 bg-gradient-to-b from-[#030712]/80 via-[#030712]/50 to-[#030712]/90' />
+          <div className='absolute inset-0 bg-gradient-to-b from-[#030712]/50 via-[#030712]/50 to-[#030712]/60' />
           <div className='absolute inset-0 bg-slate-950/30 mix-blend-multiply' />
         </div>
 

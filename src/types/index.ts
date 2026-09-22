@@ -19,7 +19,6 @@ export interface SkillCategory {
 
 export interface Experience {
   role: string;
-  period: string;
   description: string[];
   technologies: string[];
 }

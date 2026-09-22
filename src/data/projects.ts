@@ -1,6 +1,18 @@
 import { Project } from "@/types";
 
 export const projectsData: Project[] = [
+   {
+    id: "digital-bookstore",
+    title: "Digital Bookstore",
+    description: "A full-featured shopping platform with user authentication, product catalog, cart management, and payment checkout flow.",
+    category: "Frontend",
+    tags: ["Bootstrap5", "JavaScript"],
+    image: "/images/bookstore.png",
+    demoUrl: "https://bookstore-haven.netlify.app",
+    githubUrl: "https://github.com/example/ecommerce",
+    featured: true,
+    deploy: "Netlify"
+  },
   {
     id: "ecommerce-platform",
     title: "E-Commerce Web Application",
