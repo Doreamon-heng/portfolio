@@ -15,8 +15,7 @@ export const skillsData: SkillCategory[] = [
     category: "Frontend Frameworks & Libraries",
     skills: [
       { name: "React JS", level: 78 },
-      { name: "Nuxt JS", level: 60 },
-      { name: "JQuery", level: 65 },
+      { name: "Next JS", level: 60 },
     ],
   },
   {
