@@ -23,12 +23,12 @@ export const HeroSection = () => {
           </div>
 
           <h1 className='text-4xl md:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500 leading-tight'>
-            Fullstack Developer{' '}
+            Web Developer{' '}
             <span className='text-amber-50'>Application Experiences </span>
           </h1>
 
           <p className='mt-6 text-lg text-slate-400 leading-relaxed'>
-            Full Stack Developer | Next.js · Nuxt.js · React.js · Laravel · MERN
+            Web Developer | Next.js · Nuxt.js · React.js · Laravel · MERN
             Stack — Building high-performance web systems from interface to API.
           </p>
 

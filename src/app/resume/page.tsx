@@ -59,7 +59,7 @@ export default function ResumePage() {
           Heng Ratha
         </h1>
         <p className="text-slate-400 text-sm mt-1">
-          Full Stack Developer
+          Web Developer
         </p>
       </div>
 
