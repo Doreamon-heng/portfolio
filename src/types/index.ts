@@ -8,7 +8,12 @@ export interface Project {
   demoUrl?: string;
   githubUrl?: string;
   featured: boolean;
-  deploy: string;
+  deploy: string | DeployTarget[];
+}
+
+export interface DeployTarget {
+  platform: string;
+  url?: string;
 }
 
 

@@ -7,6 +7,9 @@ import { Project } from '@/types';
 
 export const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const deployments = typeof project.deploy === 'string'
+    ? [{ platform: project.deploy }]
+    : project.deploy;
 
   return (
     <>
@@ -74,10 +77,21 @@ export const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
         {/* Footer Links & Deployment Info */}
         <div className="px-6 pb-6 pt-2 flex items-center justify-between border-t border-slate-800/60">
           <div>
-            {project.deploy && (
-              <span className="text-xs font-semibold text-slate-300 bg-slate-800/80 px-2.5 py-1 rounded-md">
-                Deployed: <span className="text-cyan-400 capitalize">{project.deploy}</span>
-              </span>
+            {deployments.length > 0 && (
+              <div className="flex flex-wrap gap-2">
+                {deployments.map(({ platform, url }) => (
+                  <span key={platform} className="text-xs font-semibold text-slate-300 bg-slate-800/80 px-2.5 py-1 rounded-md">
+                    Deployed:{' '}
+                    {url ? (
+                      <a href={url} target="_blank" rel="noreferrer" className="text-cyan-400 capitalize hover:underline">
+                        {platform}
+                      </a>
+                    ) : (
+                      <span className="text-cyan-400 capitalize">{platform}</span>
+                    )}
+                  </span>
+                ))}
+              </div>
             )}
           </div>
 
@@ -181,10 +195,21 @@ export const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
 
             {/* Modal Footer */}
             <div className="p-4 border-t border-slate-800/80 bg-slate-950/40 flex items-center justify-between gap-4">
-              {project.deploy ? (
-                <span className="text-xs font-semibold text-slate-300 bg-slate-800 px-3 py-1.5 rounded-lg">
-                  Deployed: <span className="text-cyan-400 capitalize">{project.deploy}</span>
-                </span>
+              {deployments.length > 0 ? (
+                <div className="flex flex-wrap gap-2">
+                  {deployments.map(({ platform, url }) => (
+                    <span key={platform} className="text-xs font-semibold text-slate-300 bg-slate-800 px-3 py-1.5 rounded-lg">
+                      Deployed:{' '}
+                      {url ? (
+                        <a href={url} target="_blank" rel="noreferrer" className="text-cyan-400 capitalize hover:underline">
+                          {platform}
+                        </a>
+                      ) : (
+                        <span className="text-cyan-400 capitalize">{platform}</span>
+                      )}
+                    </span>
+                  ))}
+                </div>
               ) : (
                 <div />
               )}

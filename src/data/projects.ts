@@ -15,18 +15,31 @@ export const projectsData: Project[] = [
     deploy: 'Netlify',
   },
   {
-    id: 'ecommerce-platform',
-    title: 'E-Commerce Web Application',
+    id: 'Nexus-topup',
+    title: 'Game topup website',
     description:
-      'A full-featured shopping platform with user authentication, product catalog, cart management, and payment checkout flow.',
+      'A full website topup game with backend API integration, and secure payment processing. frontend built with Nuxt.js and Tailwind CSS, backend powered by Laravel API and MySQL database, integrated with Bakong API for seamless transactions.on this project frontend hosting on vercel, backbend hosting on render and database with aivencloud.',
     category: 'Fullstack',
-    tags: ['Nuxt Js', 'Tailwind CSS', 'API integrateion'],
+    tags: ['Nuxt Js', 'Tailwind CSS', 'Laravel API', 'MySQL' , 'Bakong API'],
     image:
-      'https://images.unsplash.com/photo-1557821552-17105176677c?q=80&w=800&auto=format&fit=crop',
-    demoUrl: 'https://example.com',
+      '/images/nexus-topup.png',
+    demoUrl: 'https://gametopup-frontend-delta.vercel.app/',
     githubUrl: 'https://github.com/example/ecommerce',
     featured: true,
-    deploy: 'vercel',
+    deploy: [
+      {
+        platform: 'Vercel',
+        url: 'https://gametopup-frontend-delta.vercel.app/'
+      },
+      {
+        platform: 'Render',
+        
+      },
+      {
+        platform: 'Aiven Cloud',
+        
+      }
+    ],
   },
   {
     id: 'Movie Website',
