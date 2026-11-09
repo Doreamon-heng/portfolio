@@ -19,7 +19,7 @@ export interface DeployTarget {
 
 export interface SkillCategory {
   category: string;
-  skills: { name: string; level: number }[];
+  skills: { name: string; image: string }[];
 }
 
 export interface Experience {

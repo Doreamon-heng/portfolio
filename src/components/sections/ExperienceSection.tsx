@@ -7,7 +7,7 @@ export const ExperienceSection = () => {
   return (
     <section id="experience" className="py-20 w-full max-w-6xl mx-auto px-6 border-t border-slate-800/50">
       <SectionHeading
-        title="Professional Experience"
+        title="Practical Experience"
         subtitle="My journey in engineering high-quality web and mobile applications."
       />
 

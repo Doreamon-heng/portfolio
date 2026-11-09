@@ -17,7 +17,7 @@ export const ProjectsSection = () => {
   return (
     <section id="projects" className="py-20 w-full max-w-6xl mx-auto px-6 border-t border-slate-800/50">
       <SectionHeading
-        title="Featured Portfolio Work"
+        title="Projects"
         subtitle="A selection of recent applications built across modern web and mobile ecosystems."
       />
 
