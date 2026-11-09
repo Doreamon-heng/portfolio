@@ -74,7 +74,7 @@ export const skillsData: SkillCategory[] = [
     skills: [
       {
         name: 'Vercel',
-        image:'/public/images/skills/Vercel-Logo.jpg'
+        image:'/public/images/skills/vercel-Logo.jpg'
       },
       {
         name: 'Netlify',
